@@ -6,6 +6,8 @@
 
 <t:layout>
     <jsp:body>
-        <p>Hi Im the heart of the message</p>
+        <div class="p-6 bg-white border-b border-gray-200">
+            Selamat Datang Admin, ${pageContext.request.userPrincipal.name}
+        </div>
     </jsp:body>
 </t:layout>
