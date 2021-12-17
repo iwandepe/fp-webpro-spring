@@ -20,4 +20,8 @@ public class SurveyService {
     public Iterable<Survey> getAllSurveys() {
         return surveyRepository.findAll();
     }
+
+    public void saveSurvey(Survey survey) {
+        surveyRepository.save(survey);
+    }
 }
