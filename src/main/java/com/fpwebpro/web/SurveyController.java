@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -38,6 +39,22 @@ public class SurveyController {
 
     @PostMapping("/surveys/create")
     public String postSurveyData(@ModelAttribute("surveyForm") Survey surveyForm) {
+
+        surveyService.saveSurvey(surveyForm);
+
+        return "redirect:/surveys";
+    }
+
+    @GetMapping("/surveys/{id}/edit")
+    public String getSurveyEditPage(@PathVariable(value = "id") Long id, Model model) {
+        model.addAttribute("survey", surveyService.getSurveyById(id));
+
+        return "survey-edit";
+    }
+
+    @PostMapping("/surveys/{id}/edit")
+    public String putSurveyData(@PathVariable(value = "id") Long id, @ModelAttribute("surveyForm") Survey surveyForm) {
+        surveyForm.setId(id);
 
         surveyService.saveSurvey(surveyForm);
 

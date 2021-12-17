@@ -24,4 +24,8 @@ public class SurveyService {
     public void saveSurvey(Survey survey) {
         surveyRepository.save(survey);
     }
+
+    public Survey getSurveyById(Long id) {
+        return surveyRepository.getOne(id);
+    }
 }
