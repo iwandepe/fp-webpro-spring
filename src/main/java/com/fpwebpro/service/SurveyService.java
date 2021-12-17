@@ -28,4 +28,8 @@ public class SurveyService {
     public Survey getSurveyById(Long id) {
         return surveyRepository.getOne(id);
     }
+
+    public void deleteSurveyById(Long id) {
+        surveyRepository.deleteById(id);
+    }
 }

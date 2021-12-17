@@ -40,6 +40,11 @@
                                         <td>
                                             <a href="/surveys/${survey.id}/edit" class="btn btn-success p-2" type="a"><i
                                                     class="bi-pencil"></i></a>
+
+<%--                                            TODO: Create modal sure and unsure to delete the data--%>
+<%--                                            TODO: I think this will error if the survey already has response, so handle it in controller--%>
+                                            <a href="/surveys/${survey.id}/delete" class="btn btn-success p-2" type="a"><i
+                                                    class="bi-trash"></i></a>
                                         </td>
                                     </tr>
                                 </c:forEach>

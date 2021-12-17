@@ -60,4 +60,11 @@ public class SurveyController {
 
         return "redirect:/surveys";
     }
+
+    @GetMapping("/surveys/{id}/delete")
+    public String deleteSurveyData(@PathVariable(value = "id") Long id) {
+        surveyService.deleteSurveyById(id);
+
+        return "redirect:/surveys";
+    }
 }
