@@ -35,9 +35,9 @@
                             <c:forEach var="survey" items="${surveys}">
                             <label>${survey.id} ${survey.question}</label>
                             <div class="mb-3 col-12">
-                                <input type="hidden" class="form-control" placeholder="Jawaban" aria-label="Email" aria-describedby="email-addon" name="survey_id[]" value="${survey.id}">
+                                <input type="hidden" class="form-control" placeholder="Jawaban" aria-label="Email" aria-describedby="email-addon" name="survey_id[${counter}]" value="${survey.id}">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="response[${counter}]" id="opt1-${survey.id}" value="1">
+                                    <input class="form-check-input" type="radio" name="responses[${counter}]" id="opt1-${survey.id}" value="1">
                                     <label class="form-check-label" for="opt1-${survey.id}">Tidak Puas</label>
                                 </div>
 
@@ -45,19 +45,19 @@
 
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="response[${counter}]" id="opt2-${survey.id}" value="2">
+                                    <input class="form-check-input" type="radio" name="responses[${counter}]" id="opt2-${survey.id}" value="2">
                                     <label class="form-check-label" for="opt2-${survey.id}">Kurang Puas</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="response[${counter}]" id="opt3-${survey.id}" value="3">
+                                    <input class="form-check-input" type="radio" name="responses[${counter}]" id="opt3-${survey.id}" value="3">
                                     <label class="form-check-label" for="opt3-${survey.id}">Cukup Puas</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="response[${counter}]" id="opt4-${survey.id}" value="4">
+                                    <input class="form-check-input" type="radio" name="responses[${counter}]" id="opt4-${survey.id}" value="4">
                                     <label class="form-check-label" for="opt4-${survey.id}">Puas</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="response[${counter}]" id="opt5-${survey.id}" value="5">
+                                    <input class="form-check-input" type="radio" name="responses[${counter}]" id="opt5-${survey.id}" value="5">
                                     <label class="form-check-label" for="opt5-${survey.id}">Sangat Puas</label>
                                 </div>
 

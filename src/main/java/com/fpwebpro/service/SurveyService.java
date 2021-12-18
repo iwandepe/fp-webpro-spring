@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import static org.aspectj.runtime.internal.Conversions.floatValue;
+import static sun.security.krb5.Confounder.longValue;
 
 @Service
 public class SurveyService {
@@ -52,9 +53,10 @@ public class SurveyService {
 
     public void saveResponse(ResponsesCreationRequest responseCreation) {
         Customer savedCustomer = new Customer();
-        savedCustomer.setEmail( responseCreation.email );
-        savedCustomer.setName( responseCreation.name );
-        savedCustomer.setOccupation( responseCreation.occupation );
+        System.out.println( responseCreation.getEmail() );
+        savedCustomer.setEmail( responseCreation.getEmail() );
+        savedCustomer.setName( responseCreation.getName() );
+        savedCustomer.setOccupation( responseCreation.getOccupation() );
 
         customerRepository.saveAndFlush( savedCustomer ); // save the customer
 
@@ -66,15 +68,15 @@ public class SurveyService {
         ArrayList< Survey > itemSurveys = new ArrayList<Survey>();
         ArrayList< Integer > itemResponseValues = new ArrayList<Integer>();
         ArrayList< Response > itemResponses = new ArrayList<Response>();
-        for ( Integer survey_id : responseCreation.survey_id ) {
-            itemSurveys.add( surveyRepository.getOne( survey_id.longValue() ) );
+        for ( String survey_id : responseCreation.getSurvey_id() ) {
+            itemSurveys.add( surveyRepository.getOne( Long.valueOf(survey_id) ) );
         }
-        for ( Integer response : responseCreation.responses) {
-            itemResponseValues.add( response );
+        for ( String response : responseCreation.getResponses()) {
+            itemResponseValues.add( Integer.valueOf(response) );
         }
 
         int iter = 0;
-        for ( Integer survey_id : responseCreation.survey_id ) {
+        for ( String survey_id : responseCreation.getSurvey_id() ) {
             Response itemResponse = new Response();
             itemResponse.setResponse( itemResponseValues.get( iter ) );
             itemResponse.setSurvey( itemSurveys.get( iter ) );
