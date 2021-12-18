@@ -9,3 +9,5 @@ Member :
 - This is a web based aplication that have fiture for collecting survey data frm respondend and visualize the result data to administrator.
 - This web aplication build with spring-boot framework, layouting with jsp, and store the data using mysql database.
 - This web aplication has been deployed on the heroku, the link will be release soon
+
+![cdm](cdm.png)
