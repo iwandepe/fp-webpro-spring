@@ -9,7 +9,7 @@
     <jsp:body>
         <div class="card mt-4 z-index-0">
             <div class="card-header text-center pt-4">
-                <h5>Form Tambah Pertanyaan</h5>
+                <h5>Halaman Pengisian Survey</h5>
             </div>
             <div class="card-body">
                 <form role="form text-left" method="POST" action="/isi-survey">

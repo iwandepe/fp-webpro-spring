@@ -15,7 +15,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import static org.aspectj.runtime.internal.Conversions.floatValue;
-import static sun.security.krb5.Confounder.longValue;
 
 @Service
 public class SurveyService {
