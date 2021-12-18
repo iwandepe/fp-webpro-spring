@@ -10,6 +10,13 @@ public class Response {
 
     private int response;
 
+    /*
+    @Column(insertable=false, updatable=false)
+    private Long customer_id;
+
+    @Column(insertable=false, updatable=false)
+    private Long survey_id;
+    */
     @ManyToOne
     private Customer customer;
 

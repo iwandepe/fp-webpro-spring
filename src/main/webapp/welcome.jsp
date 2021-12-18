@@ -1,25 +1,31 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Create an account</title>
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <c:if test="${pageContext.request.userPrincipal.name != null}">
-        <form id="logoutForm" method="POST" action="${contextPath}/logout">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
+<t:guest-layout>
+    <jsp:body>
+    <div class="container-fluid">
+        <section>
+            <div class="text-center mt-12">
+                <br>
+                <br>
+                <div class="d-flex flex-row justify-content-center">
+                    <img src="https://www.freeiconspng.com/thumbs/survey-icon/survey-icon-12.png" alt="Logo ITS" height="175px">
+                    <div class="d-flex flex-column align-items-center">
+                        <h2 class="align-self-start fontku">Survei </h2>
+                        <h2 class="align-self-start ">Pelanggan ITS</h2>
+                        <div class="butttton d-flex flex-row buton">
+                            <a href="/isi-survey">
+                                <div class="btn btn-primary-outline align-self-start flex-fill buton">Mulai</div>
+                            </a>
+                        </div>
 
-        <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-    </c:if>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-</body>
-</html>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </jsp:body>
+</t:guest-layout>

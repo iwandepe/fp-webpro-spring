@@ -1,6 +1,8 @@
 package com.fpwebpro.service;
 
+import com.fpwebpro.model.Customer;
 import com.fpwebpro.model.Response;
+import com.fpwebpro.model.ResponsesCreationRequest;
 import com.fpwebpro.model.Survey;
 import com.fpwebpro.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,43 @@ public class SurveyService {
     public void deleteSurveyById(Long id) {
         surveyRepository.deleteById(id);
     }
+
+    public void saveResponse(ResponsesCreationRequest responseCreation) {
+        Customer savedCustomer = new Customer();
+        savedCustomer.setEmail( responseCreation.email );
+        savedCustomer.setName( responseCreation.name );
+        savedCustomer.setOccupation( responseCreation.occupation );
+
+        customerRepository.saveAndFlush( savedCustomer ); // save the customer
+
+//        if (savedCustomer == null) {
+//            savedCustomer = customerRepository.get
+//        }
+
+        // create response for each surveys
+        ArrayList< Survey > itemSurveys = new ArrayList<Survey>();
+        ArrayList< Integer > itemResponseValues = new ArrayList<Integer>();
+        ArrayList< Response > itemResponses = new ArrayList<Response>();
+        for ( Integer survey_id : responseCreation.survey_id ) {
+            itemSurveys.add( surveyRepository.getOne( survey_id.longValue() ) );
+        }
+        for ( Integer response : responseCreation.responses) {
+            itemResponseValues.add( response );
+        }
+
+        int iter = 0;
+        for ( Integer survey_id : responseCreation.survey_id ) {
+            Response itemResponse = new Response();
+            itemResponse.setResponse( itemResponseValues.get( iter ) );
+            itemResponse.setSurvey( itemSurveys.get( iter ) );
+            itemResponse.setCustomer( savedCustomer );
+            itemResponses.add( itemResponse );
+            iter++;
+        }
+
+        responseRepository.saveAll( itemResponses );
+    }
+
 
     // update the value
     public void getSurveysAverage() {

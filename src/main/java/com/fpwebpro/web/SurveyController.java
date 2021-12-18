@@ -1,5 +1,7 @@
 package com.fpwebpro.web;
 
+import com.fpwebpro.model.Response;
+import com.fpwebpro.model.ResponsesCreationRequest;
 import com.fpwebpro.model.Survey;
 import com.fpwebpro.model.User;
 import com.fpwebpro.service.SecurityService;
@@ -81,4 +83,58 @@ public class SurveyController {
 
         return "result";
     }
+
+
+
+    @GetMapping("/isi-survey")
+    public String getIsiSurveyPage(Model model) {
+        model.addAttribute("surveys", surveyService.getAllSurveys());
+
+        return "isi-survey";
+    }
+
+    @PostMapping("/isi-survey")
+    public String getIsiSurveyPage(@ModelAttribute("responseForm") ResponsesCreationRequest responseForm) {
+        surveyService.saveResponse( responseForm );
+
+        return "berhasil-isi"; // redirect ke sukses isi
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

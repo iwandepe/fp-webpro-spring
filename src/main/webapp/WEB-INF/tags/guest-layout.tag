@@ -1,4 +1,4 @@
-<%@tag description="Page Layout" pageEncoding="UTF-8" %>
+<%@tag description="Guest Layout" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -34,70 +34,8 @@
 
 <body class="g-sidenav-show  bg-gray-100">
 
-<%--Sidenav--%>
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-    <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="/dashboard">
-            <img src="https://www.its.ac.id/wp-content/uploads/2020/07/Logo-ITS-1-300x185.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">Survei Pelanggan ITS</span>
-        </a>
-    </div>
-    <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-home text-dark" aria-hidden="true"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#dashboardsExamples" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                        <i class="fa fa-home text-dark" aria-hidden="true"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Pertanyaan</span>
-                </a>
-                <div class="collapse" id="dashboardsExamples">
-                    <ul class="nav ms-4 ps-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/surveys/create">
-                                <span class="sidenav-mini-icon"> Ca </span>
-                                <span class="sidenav-normal"> Buat </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/surveys">
-                                <span class="sidenav-mini-icon"> Ca </span>
-                                <span class="sidenav-normal"> List </span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="surveys/result">
-                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="fa fa-home text-dark" aria-hidden="true"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Hasil Survei</span>
-                </a>
-            </li>
-
-
-        </ul>
-    </div>
-</aside>
-
 <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
-<%--    Navbar--%>
+    <%--    Navbar--%>
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
@@ -145,7 +83,7 @@
             </div>
         </div>
     </nav>
-<%--    End Navbar--%>
+    <%--    End Navbar--%>
 
     <div class="container-fluid">
         <jsp:doBody/>
