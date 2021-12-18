@@ -28,6 +28,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+
+    <script src="${contextPath}/resources/js/plugins/chartjs.min.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -151,7 +153,6 @@
 <script src="${contextPath}/resources/js/core/bootstrap.min.js"></script>
 <script src="${contextPath}/resources/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="${contextPath}/resources/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="${contextPath}/resources/js/plugins/chartjs.min.js"></script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

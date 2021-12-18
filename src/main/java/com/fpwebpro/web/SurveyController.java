@@ -67,4 +67,18 @@ public class SurveyController {
 
         return "redirect:/surveys";
     }
+
+    @GetMapping("/surveys/result")
+    public String resultSurvey(Model model) {
+        surveyService.getSurveysAverage();
+
+        model.addAttribute("surveys", surveyService.getAllSurveys() );
+        model.addAttribute("surveysCount", surveyService.surveyCount );
+        model.addAttribute("responsesTotal", surveyService.responsesTotal );
+        model.addAttribute("responsesCount", surveyService.responseCount );
+        model.addAttribute("responsesAvg", surveyService.responsesAvg );
+        model.addAttribute("itemSurveyAvg", surveyService.itemSurveyAvg );
+
+        return "result";
+    }
 }
