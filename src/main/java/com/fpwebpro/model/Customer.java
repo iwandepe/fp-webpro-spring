@@ -15,7 +15,7 @@ public class Customer {
 
     private String occupation;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
     private Set<Response> responses;
 
     public Long getId() {

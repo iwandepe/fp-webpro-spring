@@ -90,7 +90,7 @@ public class SurveyService {
 
     // update the value
     public void getSurveysAverage() {
-        Iterable<Survey> allData = surveyRepository.findAll();
+        Iterable<Survey> allData = this.getAllSurveys();
 
         itemSurveyAvg.clear();
         counter = 0;
@@ -102,19 +102,20 @@ public class SurveyService {
             counter++;
             surveyCount++;
             int itemSurveyCount = 0;
-            int itemSurveyResponsesCount = 0;
+            int itemSurveyResponsesTotal = 0;
             for ( Response itemResponse : itemSurvey.getResponses() ) {
                 responsesTotal += itemResponse.getResponse();
                 responseCount++;
                 itemSurveyCount++;
-                itemSurveyResponsesCount++;
+                itemSurveyResponsesTotal += itemResponse.getResponse();
+
             }
             int divider = 1;
             int dividerResponseCount = 1;
             if ( itemSurveyCount != 0 ) divider = itemSurveyCount;
             if ( responseCount != 0 ) dividerResponseCount = responseCount;
-            responsesAvg = floatValue(responsesTotal) / floatValue(responseCount);
-            itemSurveyAvg.add( floatValue(itemSurveyResponsesCount) / floatValue(divider) );
+            responsesAvg = floatValue(responsesTotal) / floatValue(dividerResponseCount);
+            itemSurveyAvg.add( floatValue(itemSurveyResponsesTotal) / floatValue(divider) );
         }
     }
 

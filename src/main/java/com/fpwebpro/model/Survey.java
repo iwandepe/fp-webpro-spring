@@ -11,7 +11,7 @@ public class Survey {
 
     private String question;
 
-    @OneToMany
+    @OneToMany(mappedBy = "survey")
     private Set<Response> responses;
 
     public Long getId() {

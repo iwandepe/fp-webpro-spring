@@ -17,10 +17,13 @@ public class Response {
     @Column(insertable=false, updatable=false)
     private Long survey_id;
     */
+
     @ManyToOne
+    @JoinColumn(name="customer_id")
     private Customer customer;
 
     @ManyToOne
+    @JoinColumn(name="survey_id")
     private Survey survey;
 
     public Long getId() {

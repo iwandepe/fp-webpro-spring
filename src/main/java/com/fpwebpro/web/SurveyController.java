@@ -81,6 +81,13 @@ public class SurveyController {
         model.addAttribute("responsesAvg", surveyService.responsesAvg );
         model.addAttribute("itemSurveyAvg", surveyService.itemSurveyAvg );
 
+        System.out.println( surveyService.surveyCount );
+        System.out.println( surveyService.responsesTotal );
+        System.out.println( surveyService.responseCount );
+        System.out.println( surveyService.responsesAvg );
+        System.out.println( surveyService.itemSurveyAvg );
+
+
         return "result";
     }
 

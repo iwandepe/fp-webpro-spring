@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Pertanyaan</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Question</p>
                                         <h5 class="font-weight-bolder mb-0">
                                                 ${surveysCount}
                                         </h5>
@@ -35,7 +35,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="numbers">
-                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Rata-rata total tanggapan</p>
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Rata-rata total Response</p>
                                         <h5 class="font-weight-bolder mb-0">
                                                 ${responsesAvg}
                                         </h5>
@@ -83,7 +83,7 @@
                                 <canvas id="chart-bars-avg" class="chart-canvas" height="340" width="770" style="display: block; box-sizing: border-box; height: 170px; width: 385px;"></canvas>
                             </div>
                         </div>
-                        <h6 class="ms-2 mt-4 mb-0"> Rata-rata responses </h6>
+                        <h6 class="ms-2 mt-4 mb-0"> Average responses </h6>
                     </div>
                 </div>
             </div>
@@ -100,8 +100,8 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Identity</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Occupation</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Responses</th>
                                     </tr>
                                     </thead>
@@ -156,7 +156,7 @@
                         </c:forEach>
                         ],
                     datasets: [{
-                        label: "Rata-rata tanggapan",
+                        label: "Average Response",
                         tension: 0.4,
                         borderWidth: 0,
                         borderRadius: 4,
